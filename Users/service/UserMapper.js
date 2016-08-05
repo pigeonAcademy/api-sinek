@@ -1,6 +1,6 @@
 'use strict'
-const UserEntity = require('./UserEntity')
-const UserDTO = require('./UserDTO')
+const UserEntity = require('../entity/UserEntity')
+const UserDTO = require('../dto/UserDTO')
 
 class UserMapper {
   constructor () {}

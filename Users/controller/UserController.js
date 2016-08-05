@@ -1,5 +1,5 @@
 'use strict'
-const UserDTO = require('./UserDTO')
+const UserDTO = require('../dto/UserDTO')
 class UserController {
   constructor (usrService) {
     this.usrService = usrService

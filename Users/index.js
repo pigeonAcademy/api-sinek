@@ -1,10 +1,9 @@
 'use strict'
-const UserDAO = require('./UserDAO')
-const UserController = require('./UserController')
-const UserService = require('./UserService')
-const UserRepository = require('./UserRepository')
-const UserDao = require('./UserDao')
-const UserMapper = require('./UserMapper')
+const UserController = require('./controller/UserController')
+const UserService = require('./service/UserService')
+const UserRepository = require('./repo/UserRepository')
+const UserDao = require('./dao/UserDao')
+const UserMapper = require('./service/UserMapper')
 
 module.exports = function (app, conn) {
   app.get('/user/form', (req, res) => {
