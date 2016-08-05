@@ -1,0 +1,24 @@
+<h2>Liste des utilisateurs</h2>
+<table >
+    <thead>
+        <th>Matricule</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    <tr>
+        <form method="post" name="formulaire" action="/user/delete/{{user._id}}">
+            <td>{{user.matricule}}</td>
+            <td>{{user.nom}}</td>
+            <td>{{user.prenom}}</td>
+            <td><button type="submit">Supprimer</button></td>
+        </form>
+    </tr>
+    {% endfor %}
+    </tbody>
+
+    <form method="get" action='/user/form'>
+        <button type="submit">Nouveau</button>
+    </form>
+</table>
