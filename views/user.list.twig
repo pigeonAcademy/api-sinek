@@ -8,11 +8,15 @@
     <tbody>
     {% for user in users %}
     <tr>
-        <form method="post" name="formulaire" action="/user/delete/{{user._id}}">
+
             <td>{{user.matricule}}</td>
             <td>{{user.nom}}</td>
             <td>{{user.prenom}}</td>
+        <form method="post" name="formulaire" action="/user/delete/{{user._id}}">
             <td><button type="submit">Supprimer</button></td>
+        </form>
+        <form method="get" name="formulaire" action="/user/form/{{user._id}}">
+            <td><button type="submit">Modifier</button></td>
         </form>
     </tr>
     {% endfor %}

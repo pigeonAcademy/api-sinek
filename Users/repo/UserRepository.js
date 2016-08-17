@@ -14,9 +14,11 @@ class UserRepository {
   }
 
   remove (id) {
-    console.log(id)
-
     return this.usrDao.remove(id)
+  }
+
+  getById (id) {
+    return this.usrDao.getById(id)
   }
 
 }

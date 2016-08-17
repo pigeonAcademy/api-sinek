@@ -6,7 +6,7 @@ class UserController {
   }
   addUserAction (req, res) {
     // Vérifier si mes champs sont OK avec mon service
-    this.usrService.save(new UserDTO(req.body.matricule, req.body.nom, req.body.prenom)).then(usrDTO => {
+    this.usrService.save(new UserDTO(req.body.matricule, req.body.nom, req.body.prenom, req.body._id)).then(usrDTO => {
       res.render(this.listUserAction(req, res))
     })
   }
@@ -20,6 +20,12 @@ class UserController {
   deleteUserAction (req, res) {
     this.usrService.remove(req.params.id).then(() => {
       res.render(this.listUserAction(req, res))
+    })
+  }
+
+  populateUserAction (req, res) {
+    this.usrService.getById(req.params.id).then(user => {
+      res.render('user.form.twig', {user: user})
     })
   }
 }

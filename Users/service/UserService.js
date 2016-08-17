@@ -25,6 +25,12 @@ class UserService {
   remove (id) {
     return this.usrRepo.remove(id)
   }
+
+  getById (id) {
+    return this.usrRepo.getById(id).then(usrEntity => {
+      return this.usrMapper.toDTO(usrEntity)
+    })
+  }
 }
 
 module.exports = UserService

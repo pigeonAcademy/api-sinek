@@ -2,7 +2,8 @@
 
 class UserDAO {
   constructor (conn) {
-    this.em = conn
+    this.db = conn
+    this.em = this.db.collection('Users')
   }
 
   getAll () {
@@ -14,15 +15,20 @@ class UserDAO {
     })
   }
 
-  getByID () {}
+  getById (id) {
+    return new Promise((resolve, reject) => {
+      this.em.findById(id, (err, result) => {
+        if (err) return reject(err)
+        return resolve(result)
+      })
+    })
+  }
 
   getByCriteria () {}
 
   remove (id) {
-    console.log('dao')
     return new Promise((resolve, reject) => {
       this.em.removeById(id, (err, result) => {
-        if (err) console.log(result)
         return resolve(result)
       })
     })
@@ -40,9 +46,16 @@ class UserDAO {
 
   update (usrEntity) {
     return new Promise((resolve, reject) => {
-      this.em.insert(usrEntity, (err, result) => {
-        if (err) return reject(err)
-        return resolve(result)
+      console.log('dao')
+      console.log(usrEntity)
+      this.em.update({_id: require('mongoskin').helper.toObjectID(usrEntity._id)}, {$set: {matricule: usrEntity.matricule, nom: usrEntity.nom, prenom: usrEntity.prenom}}, (err, result) => {
+        if (err) {
+          console.log(err)
+          return reject(err)
+        }else {
+          console.log('oura !')
+          return resolve(result)
+        }
       })
     })
   }
