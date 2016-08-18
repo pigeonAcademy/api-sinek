@@ -3,3 +3,5 @@ node_js:
   - "4"
 # uncomment and edit the following line if your project needs to run something other than `rake`:
 # script: bundle exec rspec spec
+before_install:
+    npm install -g mocha
