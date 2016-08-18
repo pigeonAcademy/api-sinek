@@ -12,6 +12,7 @@ class UserController {
   }
 
   listUserAction (req, res) {
+    console.log('listUserAction')
     this.usrService.getAll().then(userDTOArray => {
       res.render('user.list.twig', {users: userDTOArray})
     })

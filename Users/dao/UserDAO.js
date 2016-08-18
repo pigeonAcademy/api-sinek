@@ -8,6 +8,7 @@ class UserDAO {
 
   getAll () {
     return new Promise((resolve, reject) => {
+      console.log(this.em)
       this.em.find().toArray((err, result) => {
         if (err) return reject(err)
         return resolve(result)
