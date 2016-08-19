@@ -1,6 +1,5 @@
 FROM node:4-onbuild
 
-RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app
