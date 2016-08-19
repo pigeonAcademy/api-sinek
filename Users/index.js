@@ -2,7 +2,7 @@
 const UserController = require('./controller/UserController')
 const UserService = require('./service/UserService')
 const UserRepository = require('./repo/UserRepository')
-const UserDao = require('./dao/UserDao')
+const UserDao = require('./dao/UserDAO')
 const UserMapper = require('./service/UserMapper')
 
 module.exports = function (app, conn) {
