@@ -7,6 +7,7 @@ RUN npm install
 
 COPY . /usr/src/app
 
-EXPOSE 8080
+EXPOSE 28469
+
 CMD [ "npm", "start" ]
 CMD [ "node", "index.js" ]
